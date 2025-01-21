@@ -1,49 +1,54 @@
 <script setup>
-import { computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import items from "../products.json"; 
+import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
 const route = useRoute();
-const router = useRouter();
 const id = route.params.id;
-
+const items = ref([]);
 const product = computed(() =>
-  items.find((item) => item.id === parseInt(id))
+  items.value.find((item) => item.id === parseInt(id))
 );
 
-if (!product.value) {
-  console.error("Product not found");
-  router.push("/products");
-}
+onMounted(() => {
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      items.value = [data];
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
+});
 
-function getImageUrl(path) {
+const getImageUrl = (path) => {
   return new URL(`/${path}`, import.meta.url).href;
-}
+};
 </script>
 
 <template>
   <div v-if="product" class="container">
     <div class="left-column">
-      <img :src="getImageUrl(product.coverimage)" :alt="product.name" />
+      <img :src="product.image" :alt="product.title" />
     </div>
-
     <div class="right-column">
       <div class="product-description">
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.detail }}</p>
-        <p class="product-price">Price: {{ product.price }}</p>
-        <router-link to="/products">
-          <button class="cart-btn">Back to Products</button>
-        </router-link>
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
       </div>
+      <p class="product-price">Price: {{ product.price }} $</p>
+      <router-link to="/products">
+        <button class="cart-btn">Back to Products</button>
+      </router-link>
     </div>
   </div>
-
   <div v-else>
-    <h1>Product not found</h1>
-    <router-link to="/products">Go back to the product list</router-link>
+    <h1>Product not found or loading...</h1>
+    <router-link to="/products">
+      <button>Go back to the product list</button>
+    </router-link>
   </div>
 </template>
+
 
 <style scoped>
 html,
@@ -142,5 +147,3 @@ body {
   }
 }
 </style>
-
-

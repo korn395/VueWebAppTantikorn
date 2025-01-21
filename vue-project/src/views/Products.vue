@@ -1,6 +1,6 @@
 <script setup>
-import Mycard from './MyCard.vue';
-import items from '../Products.json';
+import MyCard from '@/views/MyCard.vue';
+// import items from '../Products.json';
 </script>
 
 <template>
@@ -9,17 +9,44 @@ import items from '../Products.json';
       <h1>Products</h1>
     </div>
     <div class="grid-container">
-      <Mycard
+      <MyCard
         v-for="item in items"
         :key="item.id"
         :id="item.id"
-        :name="item.name"
-        :detail="item.detail"
-        :coverimage="item.coverimage"
+        :title="item.title"
+        :description="item.description"
+        :image="item.image"
+        :price="item.price"
       />
     </div>
   </main>
 </template>
+
+<script scope>
+export default {
+  name: "Products",
+  components: {
+    MyCard,
+  },
+  data() {
+    return {
+      items: [],
+    };
+  },
+  created() {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => {
+        this.items = json;
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  },
+};
+</script>
+
+
 
 <style scoped>
 .tx {

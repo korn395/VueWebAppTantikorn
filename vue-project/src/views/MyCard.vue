@@ -1,10 +1,9 @@
 <template>
   <div class="card">
-    <img :src="coverimage" alt="name" style="width:100%" />
+    <img :src="image" alt="title" style="width:100%" />
     <div class="container">
-      <h1>{{ name }}</h1>
+      <h3>{{ title }}</h3>
       <p class="price">{{ price }}</p>
-      <p>{{ detail }}</p>
 
       <router-link :to="`/products/${id}`">
         <button>View Details</button>
@@ -21,15 +20,15 @@ export default {
       type: [String, Number],
       required: true,
     },
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    detail: {
+    description: {
       type: String,
       default: "",
     },
-    coverimage: {
+    image: {
       type: String,
       required: true,
     },
@@ -58,9 +57,11 @@ export default {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
+/* กำหนดขนาดรูปภาพให้คงที่ */
 .card img {
-  width: 100%;
-  height: auto;
+  width: 100; 
+  height: 250; 
+  object-fit: cover; 
   border-radius: 8px 8px 0 0;
   transition: transform 0.3s ease;
 }
@@ -73,7 +74,7 @@ export default {
   padding: 20px;
 }
 
-h1 {
+h3 {
   font-size: 1.5em;
   font-weight: bold;
   color: #fff;
@@ -84,12 +85,6 @@ h1 {
   color: #0f0;
   font-size: 1.2em;
   margin-bottom: 10px;
-}
-
-p {
-  color: #ccc;
-  font-size: 0.9em;
-  margin-bottom: 15px;
 }
 
 button {
@@ -118,7 +113,7 @@ button:hover {
     margin: 10px;
   }
 
-  h1 {
+  h3 {
     font-size: 1.3em;
   }
 
