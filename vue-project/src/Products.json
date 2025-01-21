@@ -1,0 +1,73 @@
+[
+  {
+    "id": 0,
+    "name": "Nike Sportswear",
+    "detail": "Comfortable and stylish sportswear for daily wear.",
+    "coverimage": "src/img/Nike Sportswaer.png",
+    "price": "฿1000"
+  },
+  {
+    "id": 1,
+    "name": "Nike Air",
+    "detail": "Lightweight sneakers with exceptional air cushioning.",
+    "coverimage": "src/img/Nike Air.png",
+    "price": "฿1039"
+  },
+  {
+    "id": 2,
+    "name": "ADIDAS REAL MADRID",
+    "detail": "Official Real Madrid Adidas jersey for fans and collectors.",
+    "coverimage": "src/img/ADIDAS REAL MADRID.webp",
+    "price": "฿2900"
+  },
+  {
+    "id": 3,
+    "name": "Nike Jordan",
+    "detail": "Classic Jordan design with premium materials.",
+    "coverimage": "src/img/Nike Jordan.jpg",
+    "price": "฿900"
+  },
+  {
+    "id": 4,
+    "name": "Nike Club Fleece",
+    "detail": "Warm fleece hoodie, perfect for cool weather.",
+    "coverimage": "src/img/Nike Club Fleece.png",
+    "price": "฿2600"
+  },
+  {
+    "id": 5,
+    "name": "Nike Form",
+    "detail": "Performance sportswear for athletes.",
+    "coverimage": "src/img/Nike Form.png",
+    "price": "฿2400"
+  },
+  {
+    "id": 6,
+    "name": "Jordan Jumpman",
+    "detail": "Durable and stylish footwear for sports lovers.",
+    "coverimage": "src/img/Jordan Jumpman.png",
+    "price": "฿1400"
+  },
+  {
+    "id": 7,
+    "name": "Nike Dunk Low Retro",
+    "detail": "Retro sneakers with a classic low-top design.",
+    "coverimage": "src/img/Nike Dunk Low Retro.png",
+    "price": "฿3700"
+  },
+  {
+    "id": 8,
+    "name": "Jordan 1 Low Black Toe",
+    "detail": "Iconic black toe design with premium comfort.",
+    "coverimage": "src/img/Jordan 1 Low Black Toe.jpg",
+    "price": "฿2000"
+  },
+  {
+    "id": 9,
+    "name": "Stussy Basic Stussy T-Shirt Black",
+    "detail": "Casual and trendy black Stussy t-shirt.",
+    "coverimage": "src/img/Stussy Basic Stussy T-Shirt Black.jpg",
+    "price": "฿1400"
+  }
+]
+
